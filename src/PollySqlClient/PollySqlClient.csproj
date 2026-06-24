@@ -1,0 +1,47 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net6.0;net8.0;net9.0</TargetFrameworks>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+    <PackageId>PollySqlClient</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Justin Bannister</Authors>
+    <Description>Polly v8 resilience pipelines for Microsoft.Data.SqlClient (SQL Server and Azure SQL) — retry, timeout, and circuit-breaker for SqlConnection queries and commands, plus a built-in SqlServerTransientErrors predicate covering all common SQL Server and Azure SQL transient error numbers.</Description>
+    <PackageTags>polly;sqlclient;sqlserver;sql-server;azure-sql;mssql;resilience;retry;timeout;circuit-breaker;fault-tolerance;dotnet;aspnetcore;polly-v8;database;sql;transient;dependency-injection;microsoft-data-sqlclient</PackageTags>
+    <PackageReleaseNotes>1.0.0: Initial release. ResilientSqlConnection wraps SqlConnection queries and commands in a Polly v8 ResiliencePipeline. Includes SqlServerTransientErrors helper with pre-built ShouldHandle predicate covering SQL Server and Azure SQL transient error numbers. Supports net6.0, net8.0, and net9.0.</PackageReleaseNotes>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/Swevo/PollySqlClient</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/Swevo/PollySqlClient</PackageProjectUrl>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Copyright>Copyright (c) 2025 Justin Bannister</Copyright>
+    <PackageIcon>icon.png</PackageIcon>
+
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <Deterministic>true</Deterministic>
+    <ContinuousIntegrationBuild Condition="'$(CI)' == 'true'">true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="6.*" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.*" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.*">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Polly.Core" Version="8.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\icon.png" Pack="true" PackagePath="\" />
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+</Project>
